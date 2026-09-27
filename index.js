@@ -13,7 +13,7 @@ mongoose
     .then(() => console.log("MongoDB connected!"))
     .catch((err) => console.log("MongoDB connection error:", err));
 
-const client = new Client({
+const client = new Client({          //creating the discord bot
     intents: [
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
@@ -23,7 +23,7 @@ const client = new Client({
 
 client.on("messageCreate", async (message) => {
 
-    if (message.author.bot) return;
+    if (message.author.bot) return;    //ignore bot msg 
 
     if (message.content.startsWith("create")) {
 
@@ -75,4 +75,4 @@ client.on("interactionCreate", (interaction) => {
 
 });
 
-client.login(process.env.DISCORD_TOKEN);
+client.login(process.env.DISCORD_TOKEN);   //bot connects to discord
